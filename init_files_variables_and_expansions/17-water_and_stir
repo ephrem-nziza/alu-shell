@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(printf '%o\n' $(($(echo $WATER|tr 'water' '01234'|sed 's/./& /g'|awk '{for(i=1;i<=NF;i++)r=r*5+$i}END{print r}') + $(echo $STIR|tr 'stir' '0123'|sed 's/./& /g'|awk '{for(i=1;i<=NF;i++)r=r*4+$i}END{print r}'))) | tr '01234567' 'bestchol')
+w=$(echo "$WATER"|sed 's/./& /g'|tr 'water' '01234'|awk '{for(i=1;i<=NF;i++)r=r*5+$i}END{print r}');s=$(echo "$STIR"|sed 's/./& /g'|tr 'stir.' '01234'|awk '{for(i=1;i<=NF;i++)r=r*5+$i}END{print r}');printf '%o\n' $((w+s))|tr '01234567' 'bestchol'
