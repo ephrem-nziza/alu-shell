@@ -1,2 +1,2 @@
 #!/bin/bash
-awk 'NR%2==1'
+bash -c 'n=0;while IFS= read -r l;do n=$((n+1));if [ $((n%2)) -eq 1 ];then echo "$l";fi;done'
