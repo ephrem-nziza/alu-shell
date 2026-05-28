@@ -1,8 +1,2 @@
 #!/bin/bash
-n=0
-while IFS= read -r l
-do n=$((n+1))
-if [ $((n%2)) -eq 1 ]
-then printf '%s\n' "$l"
-fi
-done
+grep -n . | grep '^[0-9]*[13579]:' | cut -d: -f2-
